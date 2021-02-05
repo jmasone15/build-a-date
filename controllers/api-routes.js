@@ -46,4 +46,20 @@ module.exports = function(app) {
       });
     }
   });
+
+
+
+
+
+
+
+
+
+  app.get("/api/:tv", function(req, res) {
+    db.Tv.findAll({
+      where: {
+        title: req.params.tv
+      }
+    }).then((data) => res.json(data));
+  });
 };
