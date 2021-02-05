@@ -9,32 +9,46 @@
     "node": true
   },
   "extends": "prettier",
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
-    "array-callback-return": "error",
-    "camelcase": "error",
-    "curly": "error",
-    "dot-notation": "error",
-    "eqeqeq": "error",
-    "implicit-arrow-linebreak": ["error", "beside"],
-    "indent": ["error", 2],
-    "no-duplicate-case": "error",
-    "no-else-return": "error",
-    "no-empty": "error",
-    "no-empty-function": "error",
-    "no-extra-semi": "error",
-    "no-func-assign": "error",
-    "no-irregular-whitespace": "error",
-    "no-multi-spaces": "error",
-    "no-unreachable": "error",
-    "no-unused-vars": "error",
-    "no-var": "error",
-    "prefer-arrow-callback": "error",
-    "prefer-const": "error",
-    "prettier/prettier": "error",
-    "quotes": ["error", "double"],
-    "semi": ["error", "always"],
-    "vars-on-top": "error",
-    "yoda": "error"
+    "array-callback-return": "warn",
+    "camelcase": "warn",
+    "curly": "warn",
+    "dot-notation": "warn",
+    "eqeqeq": "warn",
+    "implicit-arrow-linebreak": [
+      "warn",
+      "beside"
+    ],
+    "indent": [
+      "warn",
+      2
+    ],
+    "no-duplicate-case": "warn",
+    "no-else-return": "warn",
+    "no-empty": "warn",
+    "no-empty-function": "warn",
+    "no-extra-semi": "warn",
+    "no-func-assign": "warn",
+    "no-irregular-whitespace": "warn",
+    "no-multi-spaces": "warn",
+    "no-unreachable": "warn",
+    "no-unused-vars": "warn",
+    "no-var": "warn",
+    "prefer-arrow-callback": "warn",
+    "prefer-const": "warn",
+    "prettier/prettier": "warn",
+    "quotes": [
+      "warn",
+      "double"
+    ],
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "vars-on-top": "warn",
+    "yoda": "warn"
   }
 }
