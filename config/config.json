@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "MyNewPass",
-    "database": "passport_demo",
+    "password": "rootroot",
+    "database": "datenightdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
