@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 let db = require("../models");
 let passport = require("../config/passport");
+const axios = require('axios');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -48,12 +49,29 @@ module.exports = function(app) {
   });
 
 
+  app.get("/api/entertainment", function(req, res) {
+    console.log("Route hit!!!!!")
+    let searchQuery = "Orlando"  // --> req.body.searchVal
+    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}`;
 
-
-
-
-
-
+    // How are we making the REQUEST to YELP? Makes an async call for data
+    const config = {
+      headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}` }
+  };
+  
+    axios.get(url, config).then(function(response) {
+      console.log("data response here")
+      console.log(response);
+      res.json(response.data);
+    }).catch(function(err) {
+      console.log(err);
+    });
+  });
+ 
+  app.get('/test', (req, res) => {
+    res.send("TESTING");
+  })
+}; 
 
   app.get("/api/:tv", function(req, res) {
     db.Tv.findAll({

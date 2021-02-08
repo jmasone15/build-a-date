@@ -4,6 +4,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const passport = require("./config/passport");
+require('dotenv').config();
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
