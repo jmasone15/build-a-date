@@ -2,3 +2,128 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+#navbar {
+  background-color: rgb(201, 81, 105);
+}
+#navtext:hover{
+  color: white;
+  text-shadow: 0 10px 12px 0 rgba(0,0,0,0.19);
+  
+}
+#nav2{
+    background-color: rgb(14, 16, 19);
+    
+}
+
+body {
+  font: 20px Montserrat, sans-serif;
+  line-height: 1.8;
+  color: #dce3eb;
+}
+#btn:hover {
+    font-size: xx-large;
+    border-radius: 60%;
+    transition-duration: .9s;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+p {
+  font-size: 16px;
+}
+.margin {
+  margin-bottom: 45px;
+}
+.bg-1 {
+  background-color: white;
+  color: #1d1919;
+}
+.bg-2 {
+  background-color: #0f0f0f; /* Dark Blue */
+  color: #ffffff;
+}
+.bg-3 {
+  background-color: #ffffff; /* White */
+  color: #555555;
+}
+.bg-4 {
+  background-color: #2f2f2f; /* Black Gray */
+  color: #fff;
+}
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+#container {
+  padding: 0%;
+}
+.navbar {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+.navbar-nav li a:hover {
+  color: #1abc9c !important;
+}
+
+#navtext {
+  text-shadow: darkslategray;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+/* stying for the choices panel */
+.panel {
+    border: 1px solid hsl(2, 70%, 49%);
+    border-radius:0;
+    transition: box-shadow 0.5s;
+  }
+  
+  .panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+  }
+  
+  .panel-footer .btn:hover {
+    border: 1px solid #c04324;
+    background-color: rgb(255, 255, 255) !important;
+    color: #c2331a;
+  }
+  
+  .panel-heading {
+    color: rgb(61, 59, 59) !important;
+    background-color: #b8615b !important;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  #inner{
+    color: slategrey;
+  }
+  #topT{
+    color: slategrey;
+  }
+  
+  .panel-footer {
+    background-color: rgb(75, 74, 74) !important;
+  }
+  
+  .panel-footer h3 {
+    font-size: 32px;
+  }
+  
+  .panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  .panel-footer .btn {
+    margin: 15px 0;
+    background-color: #ad231f;
+    color: #fff;
+  }
