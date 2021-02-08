@@ -30,12 +30,12 @@ module.exports = function (app) {
   });
 
   // Redirect to stayIn page
-  app.get("/stay_in", function (req, res) {
+  app.get("/stayIn", function (req, res) {
     res.render("stayIn");
   });
 
   // Redirect to stayIn page
-  app.get("/go_out", function (req, res) {
+  app.get("/goOut", function (req, res) {
     res.render("goOut");
   });
 
