@@ -48,6 +48,7 @@ module.exports = function(app) {
     }
   });
 
+
   app.get("/api/entertainment", function(req, res) {
     console.log("Route hit!!!!!")
     let searchQuery = "Orlando"  // --> req.body.searchVal
@@ -71,3 +72,12 @@ module.exports = function(app) {
     res.send("TESTING");
   })
 }; 
+
+  app.get("/api/:tv", function(req, res) {
+    db.Tv.findAll({
+      where: {
+        title: req.params.tv
+      }
+    }).then((data) => res.json(data));
+  });
+};
