@@ -67,6 +67,25 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  app.get("/dates/:id", function (req, res) {
+    db.Date.findAll({
+      where: {
+        userId: req.params.id
+      }
+    }).then((data) => {
+      // console.log(data[0].dataValues);
+      res.render("dates", { dates: data });
+    });
+  });
+
+  app.delete("/dates/:id", function (req, res) {
+    db.Date.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then((data) => res.json(data));
+  });
+
 
   app.get("/api/entertainment", function (req, res) {
     console.log("Route hit!!!!!")
@@ -89,5 +108,5 @@ module.exports = function (app) {
 
   app.get('/test', (req, res) => {
     res.send("TESTING");
-  })
+  });
 };

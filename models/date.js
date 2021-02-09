@@ -23,6 +23,10 @@ module.exports = function (sequelize, DataTypes) {
         },
         goOut: {
             type: DataTypes.BOOLEAN
+        },
+        completed: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
         }
     });
 
