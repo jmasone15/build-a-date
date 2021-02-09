@@ -48,6 +48,7 @@ module.exports = function (app) {
     }
   });
 
+  // Movies
   app.get("/api/movies/:movie", function (req, res) {
     db.Movies.findAll({
       where: {
@@ -56,6 +57,67 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  // Tv Shows
+  app.get("/api/netflix/:Netflix", function (req, res) {
+    console.log(req.params.Netflix)
+    db.Tv.findAll({
+      limit: 20,
+      order: Sequelize.literal('rand()'),
+      where: {
+        Netflix: req.params.Netflix,
+      },
+
+    }).then((data) => {
+      console.log(data)
+      res.json(data);
+    });
+  });
+
+  app.get("/api/hulu/:Hulu", function (req, res) {
+    console.log(req.params.Hulu)
+    db.Tv.findAll({
+      limit: 20,
+      order: Sequelize.literal('rand()'),
+      where: {
+        Hulu: req.params.Hulu,
+      },
+
+    }).then((data) => {
+      console.log(data)
+      res.json(data);
+    });
+  });
+  app.get("/api/prime/:Prime", function (req, res) {
+    console.log(req.params.Prime)
+    db.Tv.findAll({
+      limit: 20,
+      order: Sequelize.literal('rand()'),
+      where: {
+        Prime: req.params.Prime,
+      },
+
+    }).then((data) => {
+      console.log(data)
+      res.json(data);
+    });
+  });
+
+  app.get("/api/disney/:Disney", function (req, res) {
+    console.log(req.params.Disney)
+    db.Tv.findAll({
+      limit: 20,
+      order: Sequelize.literal('rand()'),
+      where: {
+        Disney: req.params.Disney,
+      },
+
+    }).then((data) => {
+      console.log(data)
+      res.json(data);
+    });
+  });
+
+  // Dates
   app.post("/api/stayin/date", function (req, res) {
     db.Date.create({
       movie: req.body.movie,

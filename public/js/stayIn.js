@@ -90,23 +90,39 @@ $(document).ready(function () {
             window.location.replace("/index");
         });
     });
-});
+
+    const searchBtnTv = $("#searchTv");
+    searchBtnTv.on("click", function (event) {
+        event.preventDefault();
+        let userInput = $("input#tvsearch").val().trim();
+        console.log(userInput);
 
 
+        $.get(`/api/${userInput}`, function (data) {
+            console.log(data);
+            $("#tvInfo").append("<h4>Title: " + data[0].title + "<h4>");
+            $("#tvInfo").append("<h4>Year: " + data[0].year + "<h4>");
+        });
 
+        $.get(`/api/${userInput}/1`, function (data) {
+            console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                $("#tvInfo").append("<h3>Title: " + data[i].title + "<h3>");
+                $("#tvInfo").append("<h4>Year: " + data[i].year + "<h4>");
+            }
+        });
+    });
 
-
-
-
-const restart1 = $("#restart1");
-restart1.on("click", function () {
-    window.location.reload();
-});
-const restart2 = $("#restart2");
-restart2.on("click", function () {
-    window.location.reload();
-});
-const restart3 = $("#restart3");
-restart3.on("click", function () {
-    window.location.reload();
+    const restart1 = $("#restart1");
+    restart1.on("click", function () {
+        window.location.reload();
+    });
+    const restart2 = $("#restart2");
+    restart2.on("click", function () {
+        window.location.reload();
+    });
+    const restart3 = $("#restart3");
+    restart3.on("click", function () {
+        window.location.reload();
+    });
 });
