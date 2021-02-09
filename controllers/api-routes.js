@@ -48,6 +48,25 @@ module.exports = function (app) {
     }
   });
 
+  app.get("/api/movies/:movie", function (req, res) {
+    db.Movies.findAll({
+      where: {
+        title: req.params.movie,
+      }
+    }).then((data) => res.json(data));
+  });
+
+  app.post("/api/stayin/date", function (req, res) {
+    db.Date.create({
+      movie: req.body.movie,
+      day: req.body.day,
+      tv: req.body.tv,
+      recipe: req.body.recipe,
+      UserId: req.body.UserId,
+      stayIn: req.body.stayIn
+    }).then((data) => res.json(data));
+  });
+
 
   app.get("/api/entertainment", function (req, res) {
     console.log("Route hit!!!!!")

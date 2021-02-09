@@ -2,8 +2,9 @@
 <nav id="navbar" class="navbar navbar">
     <div class="container">
         <div class="navbar-header">
-            <!--the href link acts as a home button and needs to be linked to an html-->
             <a id="navtext" class="navbar-brand" href="/index">BUILD-A-DATE</a>
+            <p class="navbar-brand"> || </p>
+            <a id="navtext" class="navbar-brand" href="/logout">LOGOUT</a>
         </div>
     </div>
 </nav>
@@ -13,24 +14,34 @@
     <div id="topT" class="text-center">
         <h2>Let's Stay In</h2>
         <h4>Choose what you would like to add to your date!</h4>
+        <span style="display: none;" id="userId"></span>
+        <span style="display: none;" id="userMovie"></span>
+        <span style="display: none;" id="userDay"></span>
+        <span style="display: none;" id="userRecipe"></span>
     </div>
+
+    <br>
+
     <div class="row">
         <div class="col-sm-6">
             <div id="inner" class="panel panel text-center">
                 <div class="panel-heading">
                     <h1>MOVIES</h1>
+                    <input type="text" id="titleInput" placeholder="Search by Title">
+                    <button id="searchTitle" class="btn btn-lg">Search</button>
                 </div>
-                <div class="panel-body">
-                    <!--where the user will get movie data back-->
-                    <p><strong>1.</strong> Movie 1</p>
-                    <p><strong>2.</strong> Movie 2</p>
-                    <p><strong>3.</strong> Movie 3</p>
-                    <p><strong>4.</strong> Movie 4</p>
+                <div class="panel-body" id="m" style="display: none">
+                    <div id="mResults" style="display: none;">
+                        <p id="mTitle"><strong>Title: </strong></p>
+                        <p id="mIMDb"><strong>IMDb Rating: </strong></p>
+                        <p id="mGenres"><strong>Genres: </strong></p>
+                        <p id="mYear"><strong>Year: </strong></p>
+                    </div>
                 </div>
-                <div class="panel-footer">
+                <div class="panel-footer" style="display: none" id="mConfirm">
                     <h3>Add this movie to the date?</h3>
 
-                    <button class="btn btn-lg">Build My Date!</button>
+                    <button class="btn btn-lg" id="addMovie">Add Movie!</button> <button class="btn btn-lg" id="restart2">Clear Search</button>
                 </div>
             </div>
         </div>
@@ -38,17 +49,54 @@
             <div id="inner" class="panel panel text-center">
                 <div class="panel-heading">
                     <h1>FOOD</h1>
+                    <input type="text" id="ingredientInput" placeholder="Search by Ingredient">
+                    <button id="searchRecipe" class="btn btn-lg">Search</button>
+                </div>
+                <div class="panel-body" style="display: none" id="r">
+                    <div id="rResults" style="display: none;">
+                        <p id="rTitle"></p>
+                        <img id="rImg" src="#">
+                        <br>
+                        <a id="rLink" href="#">Recipe Instructions</a>
+                    </div>
+                </div>
+                <div class="panel-footer" style="display: none" id="rConfirm">
+                    <!--on click button will add data to calendar/database-->
+                    <h3>Add this recipe to the date?</h3>
+                    <button class="btn btn-lg" id="addRecipe">Add Recipe!</button> <button class="btn btn-lg" id="restart3">Clear Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="date" style="display: none;">
+        <div class="col-sm-6" style="margin-left: 290px;">
+            <div id="inner" class="panel panel text-center">
+                <div class="panel-heading">
+                    <h1>YOUR DATE</h1>
                 </div>
                 <div class="panel-body">
-                    <!--where user will get recipe data-->
-                    <p><strong>...</strong> Recipes ...</p>
+                    <label for="cars">Choose a Day:</label>
+                    <select name="day" id="day">
+                        <option value="Sunday">Sunday</option>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                    </select>
+                    <p id="entertain"><strong>Entertainment: </strong></p>
+                    <p id="food"><strong>Food: </strong></p>
                 </div>
                 <div class="panel-footer">
                     <!--on click button will add data to calendar/database-->
-                    <h3>Add this recipe to the date?</h3>
-                    <button class="btn btn-lg">Build My Date!</button>
+                    <h3>Ready to build your date?</h3>
+                    <button class="btn btn-lg" id="build">Build My Date!</button> <button class="btn btn-lg" id="restart1">Clear Date</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="js/stayIn.js"></script>
