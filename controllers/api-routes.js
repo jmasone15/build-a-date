@@ -173,7 +173,8 @@ module.exports = function (app) {
   app.get("/api/entertainment", function (req, res) {
     console.log("Route hit!!!!!")
     let searchQuery = "Orlando"  // --> req.body.searchVal
-    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}`;
+    let modifiedQuery = searchQuery.replace(" ", /%20/g);
+    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&find_desc={$modifiedQuery}`;
 
     // How are we making the REQUEST to YELP? Makes an async call for data
     const config = {
