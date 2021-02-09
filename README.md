@@ -45,7 +45,8 @@ To run tests, run the following command:
 npm test
 
 ## Screenshots of App
-![Alt text](public/assets/screenshot1.png )
+![Alt text](public/assets/login.png)
+![Alt text](public/assets/screenshot1.png)
 ![Alt text](public/assets/screenshot2.png)
 ![Alt text]( public/assets/screenshot3.png)
 
