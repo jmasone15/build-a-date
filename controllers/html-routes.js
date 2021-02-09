@@ -28,11 +28,16 @@ module.exports = function (app) {
   app.get("/index", isAuthenticated, function (req, res) {
     res.render("index");
   });
-
+  
   // Redirect to stayIn page
   app.get("/stayIn", isAuthenticated, function (req, res) {
     res.render("stayIn");
   });
+
+  // Redirect to dates page
+  // app.get("/dates", isAuthenticated, function (req, res) {
+  //   res.render("dates");
+  // });
 
   // Redirect to stayIn page
   app.get("/goOut", isAuthenticated, function (req, res) {
