@@ -15,6 +15,34 @@ $(document).ready(function () {
         $("#select").attr("style", "display: none;");
         $("#movieSearch").removeAttr("style");
     });
+    const netflixM = $("#netflixM");
+    netflixM.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("netflix");
+        let userStream = "Netflix"
+        streamMResults(userStream);
+    });
+    const huluM = $("#huluM");
+    huluM.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("hulu");
+        let userStream = "Hulu"
+        streamMResults(userStream);
+    });
+    const primeM = $("#primeM");
+    primeM.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("prime");
+        let userStream = "Prime"
+        streamMResults(userStream);
+    });
+    const disneyM = $("#disneyM");
+    disneyM.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("disney");
+        let userStream = "Disney"
+        streamMResults(userStream);
+    });
     const searchmTitleBtn = $("#searchMTitle");
     searchmTitleBtn.on("click", function (event) {
         event.preventDefault();
@@ -36,6 +64,35 @@ $(document).ready(function () {
             }
         });
     });
+    function streamMResults(stream) {
+        console.log(stream);
+        $("#mStream").removeAttr("style");
+
+        $.get(`/api/movie/${stream}/1`, function (data) {
+            console.log(data);
+            $("#mStreamResults").removeAttr("style")
+            for (let i = 0; i < data.length; i++) {
+                $("#mStreamResults").append(`
+                <a href= "#" class="streamMTitle">${data[i].title}</a>
+                <p class="msIMDB"><strong>IMDb Rating: ${data[i].IMDb}</strong></p>
+                <br>
+                `)
+            }
+
+            const selectTitleLink = document.querySelectorAll(".streamMTitle");
+            if (selectTitleLink) {
+                selectTitleLink.forEach((link) => {
+                    link.addEventListener("click", (event) => {
+                        const selectedTitle = event.target.text;
+                        console.log(selectedTitle);
+                        $("#mStreamConfirm").removeAttr("style");
+                        $("#selectedsTitleM").append(selectedTitle);
+                        $("#userMovie").text(selectedTitle);
+                    });
+                });
+            }
+        });
+    }
     const addMovie = $("#addMovie");
     addMovie.on("click", function (event) {
         event.preventDefault();
@@ -43,6 +100,15 @@ $(document).ready(function () {
         $("#tvOrMovie").text("movie");
         $("#userMovie").text(userMovie);
         $("#entertain").append(userMovie);
+        $("#date").removeAttr("style");
+    });
+    const addsMovie = $("#addsMovie");
+    addsMovie.on("click", function (event) {
+        event.preventDefault();
+        let usersMovie = $("#selectedsTitleM").text();
+        $("#tvOrMovie").text("movie");
+        $("#userMovie").text(usersMovie);
+        $("#entertain").append(usersMovie);
         $("#date").removeAttr("style");
     });
 
@@ -81,34 +147,34 @@ $(document).ready(function () {
         event.preventDefault();
         $("#userStream").text("netflix");
         let userStream = "Netflix"
-        streamResults(userStream);
+        streamTVResults(userStream);
     });
     const hulu = $("#hulu");
     hulu.on("click", function (event) {
         event.preventDefault();
         $("#userStream").text("hulu");
         let userStream = "Hulu"
-        streamResults(userStream);
+        streamTVResults(userStream);
     });
     const prime = $("#prime");
     prime.on("click", function (event) {
         event.preventDefault();
         $("#userStream").text("prime");
         let userStream = "Prime"
-        streamResults(userStream);
+        streamTVResults(userStream);
     });
     const disney = $("#disney");
     disney.on("click", function (event) {
         event.preventDefault();
         $("#userStream").text("disney");
         let userStream = "Disney"
-        streamResults(userStream);
+        streamTVResults(userStream);
     });
-    function streamResults(stream) {
+    function streamTVResults(stream) {
         console.log(stream);
         $("#tStream").removeAttr("style");
 
-        $.get(`/api/${stream}/1`, function (data) {
+        $.get(`/api/tv/${stream}/1`, function (data) {
             console.log(data);
             $("#tStreamResults").removeAttr("style")
             for (let i = 0; i < data.length; i++) {
@@ -153,7 +219,7 @@ $(document).ready(function () {
     });
 
 
-    
+
     // Recipe Search JS
     const foodKey = "0e0296678d63dc0895ac10e48c8b9d7a";
     const foodId = "196d44a2";
