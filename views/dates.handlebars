@@ -6,7 +6,7 @@
             <p class="navbar-brand"> || </p>
             <a id="navtext" class="navbar-brand" href="/logout">LOGOUT</a>
             <p class="navbar-brand"> || </p>
-            <a id="navtext" class="navbar-brand" href="/dates">YOUR DATES</a>
+            <a id="navtext" class="navbar-brand viewDates" href="#">YOUR DATES</a>
         </div>
     </div>
 </nav>
@@ -25,13 +25,34 @@
 <div id="container" class="container-fluid bg-1 text-center">
     <div>
         {{#each dates}}
+        {{#if this.dataValues.stayIn}}
         <h4 class="margin">Day of Date: {{this.dataValues.day}}</h4>
         <p class="margin">Entertainment: {{this.dataValues.movie}}</p>
         <p class="margin">Food: {{this.dataValues.recipe}}</p>
         <p class="margin" style="display: none;">Date Id: {{this.dataValues.id}}</p>
         <p class="margin">Completed: {{this.dataValues.completed}}</p>
+        {{#if this.dataValues.completed}}
+        <button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
+        {{else}}
         <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
         <br><br>
+        {{/if}}
+        {{/if}}
+        {{/each}}
+    </div>
+
+    <div>
+        {{#each dates}}
+        {{#if this.dataValues.goOut}}
+        <h4 class="margin">Day of Date: {{this.dataValues.day}}</h4>
+        <p class="margin">Adventure: {{this.dataValues.adventure}}</p>
+        <p class="margin">Food: {{this.dataValues.restaurant}}</p>
+        <p class="margin" style="display: none;">Date Id: {{this.dataValues.id}}</p>
+        <p class="margin">Completed: {{this.dataValues.completed}}</p>
+        
+        <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
+        <br><br>
+        {{/if}}
         {{/each}}
     </div>
 

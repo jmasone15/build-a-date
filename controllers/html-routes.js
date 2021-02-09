@@ -34,11 +34,6 @@ module.exports = function (app) {
     res.render("stayIn");
   });
 
-  // Redirect to dates page
-  // app.get("/dates", isAuthenticated, function (req, res) {
-  //   res.render("dates");
-  // });
-
   // Redirect to stayIn page
   app.get("/goOut", isAuthenticated, function (req, res) {
     res.render("goOut");
