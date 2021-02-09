@@ -7,10 +7,16 @@ $(document).ready(function () {
         console.log(data.id);
     });
 
-    const searchTitleBtn = $("#searchTitle");
-    searchTitleBtn.on("click", function (event) {
+    const selectMovieBtn = $("#searchMovie");
+    selectMovieBtn.on("click", function (event) {
         event.preventDefault();
-        let title = $("input#titleInput").val().trim();
+        $("#select").attr("style", "display: none;");
+        $("#movieSearch").removeAttr("style");
+    });
+    const searchmTitleBtn = $("#searchmTitle");
+    searchmTitleBtn.on("click", function (event) {
+        event.preventDefault();
+        let title = $("input#mtitleInput").val().trim();
         $("#m").removeAttr("style");
         $("#mConfirm").removeAttr("style");
 
@@ -28,15 +34,54 @@ $(document).ready(function () {
             }
         });
     });
-
     const addMovie = $("#addMovie");
     addMovie.on("click", function (event) {
         event.preventDefault();
         let userMovie = $("input#titleInput").val().trim();
+        $("#tvOrMovie").text("movie");
         $("#userMovie").text(userMovie);
         $("#entertain").append(userMovie);
         $("#date").removeAttr("style");
     });
+
+
+    const selectTvBtn = $("#searchTv");
+    selectTvBtn.on("click", function (event) {
+        event.preventDefault();
+        $("#select").attr("style", "display: none;");
+        $("#tvSearch").removeAttr("style");
+    });
+    const searchtTitleBtn = $("#searchTTitle");
+    searchtTitleBtn.on("click", function (event) {
+        event.preventDefault();
+        let title = $("input#ttitleInput").val().trim();
+        $("#t").removeAttr("style");
+        $("#tConfirm").removeAttr("style");
+
+        $.get(`/api/tv/${title}`, function (data) {
+            console.log(data);
+            if (data.length === 0) {
+                alert("No TV shows found.")
+                window.location.reload();
+            } else {
+                $("#tResults").removeAttr("style")
+                $("#tTitle").append(data[0].title);
+                $("#tIMDB").append(data[0].IMDB);
+                $("#tYear").append(data[0].year);
+            }
+        });
+    });
+    const addTv = $("#addTv");
+    addTv.on("click", function (event) {
+        event.preventDefault();
+        let userTv = $("input#ttitleInput").val().trim();
+        $("#tvOrMovie").text("tv");
+        $("#userTv").text(userTv);
+        $("#entertain").append(userTv);
+        $("#date").removeAttr("style");
+    });
+
+
 
     const foodKey = "0e0296678d63dc0895ac10e48c8b9d7a";
     const foodId = "196d44a2";
@@ -76,53 +121,46 @@ $(document).ready(function () {
         let day = $("#day").val();
         let recipe = $("#userRecipe").text();
         let movie = $("#userMovie").text();
+        let tv = $("#userTv").text();
         let id = $("#userId").text();
+        let tvOrMovie = $("#tvOrMovie").text();
 
-        $.post(`/api/stayIn/date`, {
-            movie: movie,
-            day: day,
-            recipe: recipe,
-            UserId: id,
-            stayIn: true
-        }).then(function (data) {
-            alert("Date saved!");
-            console.log(data);
-            window.location.replace("/index");
+        if (tvOrMovie === "movie") {
+            $.post(`/api/stayIn/date`, {
+                movie: movie,
+                day: day,
+                recipe: recipe,
+                UserId: id,
+                stayIn: true
+            }).then(function (data) {
+                alert("Date saved!");
+                console.log(data);
+                window.location.replace("/index");
+            });
+        } else if (tvOrMovie === "tv") {
+            $.post(`/api/stayIn/date`, {
+                day: day,
+                tv: tv,
+                recipe: recipe,
+                UserId: id,
+                stayIn: true
+            }).then(function (data) {
+                alert("Date saved!");
+                console.log(data);
+                window.location.replace("/index");
+            });
+        } else {
+            alert("Please select an entertainment for your date.");
+        }
+
+    });
+
+    const restart = document.querySelectorAll(".restart");
+    if (restart) {
+        restart.forEach((button) => {
+            button.addEventListener("click", (event) => {
+                window.location.reload();
+            });
         });
-    });
-
-    const searchBtnTv = $("#searchTv");
-    searchBtnTv.on("click", function (event) {
-        event.preventDefault();
-        let userInput = $("input#tvsearch").val().trim();
-        console.log(userInput);
-
-
-        $.get(`/api/${userInput}`, function (data) {
-            console.log(data);
-            $("#tvInfo").append("<h4>Title: " + data[0].title + "<h4>");
-            $("#tvInfo").append("<h4>Year: " + data[0].year + "<h4>");
-        });
-
-        $.get(`/api/${userInput}/1`, function (data) {
-            console.log(data);
-            for (let i = 0; i < data.length; i++) {
-                $("#tvInfo").append("<h3>Title: " + data[i].title + "<h3>");
-                $("#tvInfo").append("<h4>Year: " + data[i].year + "<h4>");
-            }
-        });
-    });
-
-    const restart1 = $("#restart1");
-    restart1.on("click", function () {
-        window.location.reload();
-    });
-    const restart2 = $("#restart2");
-    restart2.on("click", function () {
-        window.location.reload();
-    });
-    const restart3 = $("#restart3");
-    restart3.on("click", function () {
-        window.location.reload();
-    });
+    }
 });

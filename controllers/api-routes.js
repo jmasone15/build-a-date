@@ -58,6 +58,14 @@ module.exports = function (app) {
   });
 
   // Tv Shows
+  app.get("/api/tv/:title", function (req, res) {
+    db.Tv.findAll({
+      where: {
+        title: req.params.title
+      }
+    }).then((data) => res.json(data));
+  });
+  
   app.get("/api/netflix/:Netflix", function (req, res) {
     console.log(req.params.Netflix)
     db.Tv.findAll({

@@ -27,16 +27,20 @@
         {{#each dates}}
         {{#if this.dataValues.stayIn}}
         <h4 class="margin">Day of Date: {{this.dataValues.day}}</h4>
-        <p class="margin">Entertainment: {{this.dataValues.movie}}</p>
+            {{#if this.dataValues.movie}}
+            <p class="margin">Entertainment: {{this.dataValues.movie}}</p>
+            {{else}}
+            <p class="margin">Entertainment: {{this.dataValues.tv}}</p>
+            {{/if}}
         <p class="margin">Food: {{this.dataValues.recipe}}</p>
         <p class="margin" style="display: none;">Date Id: {{this.dataValues.id}}</p>
         <p class="margin">Completed: {{this.dataValues.completed}}</p>
-        {{#if this.dataValues.completed}}
-        <button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
-        {{else}}
-        <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
-        <br><br>
-        {{/if}}
+            {{#if this.dataValues.completed}}
+            <button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
+            {{else}}
+            <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
+            <br><br>
+            {{/if}}
         {{/if}}
         {{/each}}
     </div>
