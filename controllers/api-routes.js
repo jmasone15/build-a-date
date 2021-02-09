@@ -86,6 +86,19 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  app.put("/dates/update/:id", function (req, res) {
+    db.Date.update(
+      {
+        completed: true
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    ).then((data) => res.json(data));
+  });
+
 
   app.get("/api/entertainment", function (req, res) {
     console.log("Route hit!!!!!")
