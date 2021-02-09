@@ -21,6 +21,7 @@
         <span style="display: none;" id="userId"></span>
         <span style="display: none;" id="userMovie"></span>
         <span style="display: none;" id="userTv"></span>
+        <span style="display: none;" id="userStream"></span>
         <span style="display: none;" id="userDay"></span>
         <span style="display: none;" id="userRecipe"></span>
         <span style="display: none;" id="tvOrMovie"></span>
@@ -70,9 +71,23 @@
                 </div>
 
                 <div class="panel-heading" id="tvSearch" style="display: none;">
-                    <h1>TV Show</h1>
+                    <h1>TV SHOWS</h1>
                     <input type="text" id="ttitleInput" placeholder="Search by Title">
                     <button id="searchTTitle" class="btn btn-lg">Search</button>
+                    <p> OR </p>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true">
+                            Search By Streaming Service
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" id="netflix">Netflix</a></li>
+                            <li><a href="#" id="hulu">Hulu</a></li>
+                            <li><a href="#" id="disney">Disney+</a></li>
+                            <li><a href="#" id="prime">Amazon Prime</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="panel-body" id="t" style="display: none">
                     <div id="tResults" style="display: none;">
@@ -81,10 +96,21 @@
                         <p id="tYear"><strong>Year: </strong></p>
                     </div>
                 </div>
+                <div class="panel-body" id="tStream" style="display: none">
+                    <div id="tStreamResults" style="display: none;">
+
+                    </div>
+                </div>
                 <div class="panel-footer" style="display: none" id="tConfirm">
                     <h3>Add this TV Show to the date?</h3>
-
+                    <p id="selectedTitle"></p>
                     <button class="btn btn-lg" id="addTv">Add TV Show!</button> <button class="btn btn-lg restart">Clear
+                        Search</button>
+                </div>
+                <div class="panel-footer" style="display: none" id="tStreamConfirm">
+                    <h3>Add this TV Show to the date?</h3>
+                    <p id="selectedsTitle"></p>
+                    <button class="btn btn-lg" id="addsTv">Add TV Show!</button> <button class="btn btn-lg restart">Clear
                         Search</button>
                 </div>
             </div>
