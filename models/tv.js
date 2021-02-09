@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       Hulu: {
         type: DataTypes.BOOLEAN,
       },
-      Primes: {
+      Prime: {
         type: DataTypes.BOOLEAN,
       },
       Disney: {
