@@ -31,7 +31,11 @@
             </div>
             <div class="panel-body">
                 <h4 class="margin">Day of Date: {{this.dataValues.day}}</h4>
+                {{#if this.dataValues.movie}}
                 <p class="margin">Entertainment: {{this.dataValues.movie}}</p>
+                {{else}}
+                <p class="margin">Entertainment: {{this.dataValues.tv}}</p>
+                {{/if}}
                 <p class="margin">Food: {{this.dataValues.recipe}}</p>
                 <p class="margin" style="display: none;">Date Id: {{this.dataValues.id}}</p>
                 <p class="margin">Completed: {{this.dataValues.completed}}</p>
@@ -49,24 +53,25 @@
     </div>
 </div>
 
-    <div>
-        {{#each dates}}
-        {{#if this.dataValues.goOut}}
-        <h4 class="margin">Day of Date: {{this.dataValues.day}}</h4>
-        <p class="margin">Adventure: {{this.dataValues.adventure}}</p>
-        <p class="margin">Food: {{this.dataValues.restaurant}}</p>
-        <p class="margin" style="display: none;">Date Id: {{this.dataValues.id}}</p>
-        <p class="margin">Completed: {{this.dataValues.completed}}</p>
+<div>
+    {{#each dates}}
+    {{#if this.dataValues.goOut}}
+    <h4 class="margin">Day of Date: {{this.dataValues.day}}</h4>
+    <p class="margin">Adventure: {{this.dataValues.adventure}}</p>
+    <p class="margin">Food: {{this.dataValues.restaurant}}</p>
+    <p class="margin" style="display: none;">Date Id: {{this.dataValues.id}}</p>
+    <p class="margin">Completed: {{this.dataValues.completed}}</p>
 
 
-        <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button
-            class="btn btn-lg delete" id="{{this.dataValues.id}}">Delete Date</button>
+    <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete"
+        id="{{this.dataValues.id}}">Delete Date</button>
 
-        <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete" id = "{{this.dataValues.id}}">Delete Date</button>
-        <br><br>
-        {{/if}}
-        {{/each}}
-    </div>
+    <button class="btn btn-lg update" id="{{this.dataValues.id}}">Go On Date</button><button class="btn btn-lg delete"
+        id="{{this.dataValues.id}}">Delete Date</button>
+    <br><br>
+    {{/if}}
+    {{/each}}
+</div>
 
 </div>
 

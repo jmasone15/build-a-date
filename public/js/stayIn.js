@@ -15,7 +15,7 @@ $(document).ready(function () {
         $("#select").attr("style", "display: none;");
         $("#movieSearch").removeAttr("style");
     });
-    const searchmTitleBtn = $("#searchmTitle");
+    const searchmTitleBtn = $("#searchMTitle");
     searchmTitleBtn.on("click", function (event) {
         event.preventDefault();
         let title = $("input#mtitleInput").val().trim();
@@ -39,7 +39,7 @@ $(document).ready(function () {
     const addMovie = $("#addMovie");
     addMovie.on("click", function (event) {
         event.preventDefault();
-        let userMovie = $("input#titleInput").val().trim();
+        let userMovie = $("input#mtitleInput").val().trim();
         $("#tvOrMovie").text("movie");
         $("#userMovie").text(userMovie);
         $("#entertain").append(userMovie);
