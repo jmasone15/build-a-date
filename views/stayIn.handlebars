@@ -20,8 +20,10 @@
         <h4>Choose what you would like to add to your date!</h4>
         <span style="display: none;" id="userId"></span>
         <span style="display: none;" id="userMovie"></span>
+        <span style="display: none;" id="userTv"></span>
         <span style="display: none;" id="userDay"></span>
         <span style="display: none;" id="userRecipe"></span>
+        <span style="display: none;" id="tvOrMovie"></span>
     </div>
 
     <br>
@@ -29,10 +31,15 @@
     <div class="row">
         <div class="col-sm-6">
             <div id="inner" class="panel panel text-center">
-                <div class="panel-heading">
+                <div class="panel-heading" id="select">
+                    <h1>ENTERTAINMENT</h1>
+                    <button id="searchTv" class="btn btn-lg">TV Shows</button>
+                    <button id="searchMovie" class="btn btn-lg">Movies</button>
+                </div>
+                <div class="panel-heading" id="movieSearch" style="display: none;">
                     <h1>MOVIES</h1>
-                    <input type="text" id="titleInput" placeholder="Search by Title">
-                    <button id="searchTitle" class="btn btn-lg">Search</button>
+                    <input type="text" id="mtitleInput" placeholder="Search by Title">
+                    <button id="searchMTitle" class="btn btn-lg">Search</button>
                 </div>
                 <div class="panel-body" id="m" style="display: none">
                     <div id="mResults" style="display: none;">
@@ -46,7 +53,26 @@
                     <h3>Add this movie to the date?</h3>
 
                     <button class="btn btn-lg" id="addMovie">Add Movie!</button> <button class="btn btn-lg"
-                        id="restart2">Clear Search</button>
+                        id="restart">Clear Search</button>
+                </div>
+
+                <div class="panel-heading" id="tvSearch" style="display: none;">
+                    <h1>TV Show</h1>
+                    <input type="text" id="ttitleInput" placeholder="Search by Title">
+                    <button id="searchTTitle" class="btn btn-lg">Search</button>
+                </div>
+                <div class="panel-body" id="t" style="display: none">
+                    <div id="tResults" style="display: none;">
+                        <p id="tTitle"><strong>Title: </strong></p>
+                        <p id="tIMDB"><strong>IMDb Rating: </strong></p>
+                        <p id="tYear"><strong>Year: </strong></p>
+                    </div>
+                </div>
+                <div class="panel-footer" style="display: none" id="tConfirm">
+                    <h3>Add this TV Show to the date?</h3>
+
+                    <button class="btn btn-lg" id="addTv">Add TV Show!</button> <button class="btn btn-lg restart">Clear
+                        Search</button>
                 </div>
             </div>
         </div>
@@ -68,8 +94,9 @@
                 <div class="panel-footer" style="display: none" id="rConfirm">
                     <!--on click button will add data to calendar/database-->
                     <h3>Add this recipe to the date?</h3>
-                    <button class="btn btn-lg" id="addRecipe">Add Recipe!</button> <button class="btn btn-lg"
-                        id="restart3">Clear Search</button>
+                    <button class="btn btn-lg" id="addRecipe">Add Recipe!</button> <button
+                        class="btn btn-lg restart">Clear
+                        Search</button>
                 </div>
             </div>
         </div>
@@ -90,8 +117,8 @@
                 <div class="panel-footer">
                     <!--on click button will add data to calendar/database-->
                     <h3>Ready to build your date?</h3>
-                    <button class="btn btn-lg" id="build">Build My Date!</button> <button class="btn btn-lg"
-                        id="restart1">Clear Date</button>
+                    <button class="btn btn-lg" id="build">Build My Date!</button> <button
+                        class="btn btn-lg restart">Clear Date</button>
                 </div>
             </div>
         </div>
