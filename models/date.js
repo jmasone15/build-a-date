@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING
         },
         day: {
-            type: DataTypes.STRING
+            type: DataTypes.DATEONLY
         },
         tv: {
             type: DataTypes.STRING
