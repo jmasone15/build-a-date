@@ -1,5 +1,6 @@
 $(document).ready(function () {
     console.log("stayIn.js loaded");
+    $('.dropdown-toggle').dropdown()
 
     // GET request to grab the user's id so we can assign the date to them.
     $.get("/api/user_data").then(function (data) {
