@@ -48,7 +48,13 @@ npm test
 ![Alt text](public/assets/login.png)
 ![Alt text](public/assets/screenshot1.png)
 ![Alt text](public/assets/screenshot2.png)
-![Alt text]( public/assets/screenshot3.png)
+![Alt text](public/assets/screenshot3.png)
+![Alt text](public/assets/screenshot4.png)
+![Alt text](public/assets/screenshot5.png)
+![Alt text](public/assets/screenshot6.png)
+
+## Link to the application
+...
 
 ## Questions
 
