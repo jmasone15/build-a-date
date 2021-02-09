@@ -7,6 +7,7 @@ $(document).ready(function () {
         console.log(data.id);
     });
 
+    // Movies Search JS
     const selectMovieBtn = $("#searchMovie");
     selectMovieBtn.on("click", function (event) {
         event.preventDefault();
@@ -45,6 +46,8 @@ $(document).ready(function () {
     });
 
 
+
+    // TV Show Search JS
     const selectTvBtn = $("#searchTv");
     selectTvBtn.on("click", function (event) {
         event.preventDefault();
@@ -66,23 +69,91 @@ $(document).ready(function () {
             } else {
                 $("#tResults").removeAttr("style")
                 $("#tTitle").append(data[0].title);
+                $("#selectedTitle").append(data[0].title);
                 $("#tIMDB").append(data[0].IMDB);
                 $("#tYear").append(data[0].year);
             }
         });
     });
+    const netflix = $("#netflix");
+    netflix.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("netflix");
+        let userStream = "Netflix"
+        streamResults(userStream);
+    });
+    const hulu = $("#hulu");
+    hulu.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("hulu");
+        let userStream = "Hulu"
+        streamResults(userStream);
+    });
+    const prime = $("#prime");
+    prime.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("prime");
+        let userStream = "Prime"
+        streamResults(userStream);
+    });
+    const disney = $("#disney");
+    disney.on("click", function (event) {
+        event.preventDefault();
+        $("#userStream").text("disney");
+        let userStream = "Disney"
+        streamResults(userStream);
+    });
+    function streamResults(stream) {
+        console.log(stream);
+        $("#tStream").removeAttr("style");
+
+        $.get(`/api/${stream}/1`, function (data) {
+            console.log(data);
+            $("#tStreamResults").removeAttr("style")
+            for (let i = 0; i < data.length; i++) {
+                $("#tStreamResults").append(`
+                <a href= "#" class="streamTitle">${data[i].title}</a>
+                <p class="tsIMDB"><strong>IMDb Rating: ${data[i].IMDB}</strong></p>
+                <br>
+                `)
+            }
+
+            const selectTitleLink = document.querySelectorAll(".streamTitle");
+            if (selectTitleLink) {
+                selectTitleLink.forEach((link) => {
+                    link.addEventListener("click", (event) => {
+                        const selectedTitle = event.target.text;
+                        console.log(selectedTitle);
+                        $("#tStreamConfirm").removeAttr("style");
+                        $("#selectedsTitle").append(selectedTitle);
+                        $("#userTv").text(selectedTitle);
+                    });
+                });
+            }
+        });
+    }
     const addTv = $("#addTv");
     addTv.on("click", function (event) {
         event.preventDefault();
-        let userTv = $("input#ttitleInput").val().trim();
+        let userTv = $("#selectedTitle").text();
         $("#tvOrMovie").text("tv");
         $("#userTv").text(userTv);
         $("#entertain").append(userTv);
         $("#date").removeAttr("style");
     });
+    const addsTv = $("#addsTv");
+    addsTv.on("click", function (event) {
+        event.preventDefault();
+        let usersTv = $("#selectedsTitle").text();
+        $("#tvOrMovie").text("tv");
+        $("#userTv").text(usersTv);
+        $("#entertain").append(usersTv);
+        $("#date").removeAttr("style");
+    });
 
 
-
+    
+    // Recipe Search JS
     const foodKey = "0e0296678d63dc0895ac10e48c8b9d7a";
     const foodId = "196d44a2";
     const searchRecipeBtn = $("#searchRecipe");
@@ -105,7 +176,6 @@ $(document).ready(function () {
             }
         });
     });
-
     const addRecipe = $("#addRecipe");
     addRecipe.on("click", function (event) {
         event.preventDefault();
@@ -115,6 +185,7 @@ $(document).ready(function () {
         $("#date").removeAttr("style");
     });
 
+    // Build Date JS
     const buildDate = $("#build");
     buildDate.on("click", function (event) {
         event.preventDefault();
@@ -155,6 +226,7 @@ $(document).ready(function () {
 
     });
 
+    // Restart Button
     const restart = document.querySelectorAll(".restart");
     if (restart) {
         restart.forEach((button) => {
