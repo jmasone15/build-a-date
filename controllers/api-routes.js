@@ -57,6 +57,54 @@ module.exports = function (app) {
       }
     }).then((data) => res.json(data));
   });
+  app.get("/api/movie/netflix/:Netflix", function (req, res) {
+    db.Movies.findAll({
+      limit: 5,
+      order: Sequelize.literal('rand()'),
+      where: {
+        netflix: req.params.Netflix,
+      },
+
+    }).then((data) => {
+      res.json(data);
+    });
+  });
+  app.get("/api/movie/hulu/:Hulu", function (req, res) {
+    db.Movies.findAll({
+      limit: 5,
+      order: Sequelize.literal('rand()'),
+      where: {
+        hulu: req.params.Hulu,
+      },
+
+    }).then((data) => {
+      res.json(data);
+    });
+  });
+  app.get("/api/movie/prime/:Prime", function (req, res) {
+    db.Movies.findAll({
+      limit: 5,
+      order: Sequelize.literal('rand()'),
+      where: {
+        prime_video: req.params.Prime,
+      },
+
+    }).then((data) => {
+      res.json(data);
+    });
+  });
+  app.get("/api/movie/disney/:Disney", function (req, res) {
+    db.Movies.findAll({
+      limit: 5,
+      order: Sequelize.literal('rand()'),
+      where: {
+        disney_plus: req.params.Disney,
+      },
+
+    }).then((data) => {
+      res.json(data);
+    });
+  });
 
   // Tv Shows
   app.get("/api/tv/:title", function (req, res) {
@@ -67,7 +115,7 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
-  app.get("/api/netflix/:Netflix", function (req, res) {
+  app.get("/api/tv/netflix/:Netflix", function (req, res) {
     db.Tv.findAll({
       limit: 5,
       order: Sequelize.literal('rand()'),
@@ -79,7 +127,7 @@ module.exports = function (app) {
       res.json(data);
     });
   });
-  app.get("/api/hulu/:Hulu", function (req, res) {
+  app.get("/api/tv/hulu/:Hulu", function (req, res) {
     db.Tv.findAll({
       limit: 5,
       order: Sequelize.literal('rand()'),
@@ -91,7 +139,7 @@ module.exports = function (app) {
       res.json(data);
     });
   });
-  app.get("/api/prime/:Prime", function (req, res) {
+  app.get("/api/tv/prime/:Prime", function (req, res) {
     db.Tv.findAll({
       limit: 5,
       order: Sequelize.literal('rand()'),
@@ -103,7 +151,7 @@ module.exports = function (app) {
       res.json(data);
     });
   });
-  app.get("/api/disney/:Disney", function (req, res) {
+  app.get("/api/tv/disney/:Disney", function (req, res) {
     db.Tv.findAll({
       limit: 5,
       order: Sequelize.literal('rand()'),
