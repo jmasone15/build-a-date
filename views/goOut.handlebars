@@ -25,15 +25,17 @@
                     <form action="/api/entertainment" method="POST">
                         <input id="location" type="text" name="location" placeholder="Enter Location"/> 
                         <input id="query" type="text" name="query" placeholder="Enter Search Query"/>
-                        <button type="submit">Submit</button>
+                        <button type="submit" id="restaurantSearch">Submit</button>
                     </form>
                 </div>
                 <div class="panel-body">
                     <!--section where the user will get back info on different restaurants-->
-                    <p><strong>1.</strong> Place 1</p>
-                    <p><strong>2.</strong> Place 2</p>
+                    {{#each places}}
+                    <p><strong></strong>{{this.name}}</p>
+                    {{!-- <p><strong>2.</strong> </p>
                     <p><strong>3.</strong> Place 3</p>
-                    <p><strong>4.</strong> Place 4</p>
+                    <p><strong>4.</strong> Place 4</p> --}}
+                    {{/each}}
                 </div>
                 <div class="panel-footer">
                     <h3>Add this restaurant to the date?</h3>
@@ -71,4 +73,4 @@
     </svg>
 </footer>
 
-<script src="../public/js/goOut.js"></script>
+<script type="text/javascript" src="js/goOut.js"></script>
