@@ -65,7 +65,7 @@ module.exports = function (app) {
       }
     }).then((data) => res.json(data));
   });
-  
+
   app.get("/api/netflix/:Netflix", function (req, res) {
     console.log(req.params.Netflix)
     db.Tv.findAll({
@@ -177,9 +177,9 @@ module.exports = function (app) {
     console.log(req.body)
 
     let searchQuery = req.body.location  // --> req.body.location
-    let query = req.body.query; 
+    let query = req.body.query;
     let modifiedQuery = query.replace(" ", /%20/g);
-    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&find_desc=${modifiedQuery}`;
+    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&categories=${modifiedQuery}`;
     //let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&type=${modifiedQuery}`;
     console.log(`URL: ${url}`);
     // How are we making the REQUEST to YELP? Makes an async call for data
@@ -194,22 +194,19 @@ module.exports = function (app) {
       // How do we pull out the most relevant information from the RESPONSE
       let results = [];
       let data = response.data.businesses; // ARRAY datatype
-      for(let i = 0; i < 10; i++) {
+      for (let i = 0; i < 4; i++) {
         results.push(data[i])
       }
 
       console.log(results)
+      res.json(results)
       // Pass the top 4 results to the VIEW
 
       // -- In the view -- //
-      let bizNames = [];
-      results.forEach(function(biz) {
-        console.log(biz.name)
-        console.log(biz.price)
-        bizNames.push(biz.name);
-      })
 
-      res.json(bizNames);
+
+
+
     }).catch(function (err) {
       console.log(err);
     });
