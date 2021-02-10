@@ -260,7 +260,7 @@ module.exports = function (app) {
 
     axios.get(url, config).then(function (response) {
       console.log("data response here")
-      //console.log(response);
+      console.log(response);
 
       // How do we pull out the most relevant information from the RESPONSE
       let results = [];
@@ -270,7 +270,7 @@ module.exports = function (app) {
       }
 
       console.log(results)
-      res.json(results)
+      res.render("goOut", {places: results})
       // Pass the top 4 results to the VIEW
 
       // -- In the view -- //

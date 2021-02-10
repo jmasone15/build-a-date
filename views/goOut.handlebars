@@ -24,17 +24,21 @@
                 <div class="panel-heading">
                     <h1>Restaurants</h1>
                     <form action="/api/entertainment" method="POST">
-                        <input id="location" type="text" name="location" placeholder="Enter Location" />
-                        <input id="query" type="text" name="query" placeholder="Enter Search Query" />
-                        <button type="submit">Submit</button>
+
+                        <input id="location" type="text" name="location" placeholder="Enter Location"/> 
+                        <input id="query" type="text" name="query" placeholder="Enter Search Query"/>
+                        <button type="submit" id="restaurantSearch">Submit</button>
+
                     </form>
                 </div>
                 <div class="panel-body">
                     <!--section where the user will get back info on different restaurants-->
-                    <p><strong>1.</strong> Place 1</p>
-                    <p><strong>2.</strong> Place 2</p>
+                    {{#each places}}
+                    <p><strong><a href="{{this.url}}"></strong>{{this.name}}</a></p>
+                    {{!-- <p><strong>2.</strong> </p>
                     <p><strong>3.</strong> Place 3</p>
-                    <p><strong>4.</strong> Place 4</p>
+                    <p><strong>4.</strong> Place 4</p> --}}
+                    {{/each}}
                 </div>
                 <div class="panel-footer">
                     <h3>Add this restaurant to the date?</h3>
@@ -42,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        {{!-- <div class="col-sm-4">
             <div id="inner" class="panel panel text-center">
                 <div class="panel-heading">
                     <h1>ADVENTURE</h1>
@@ -58,7 +62,7 @@
                     <button class="btn btn-lg">Build my date!</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 
@@ -72,4 +76,4 @@
     </svg>
 </footer>
 
-<script src="../public/js/goOut.js"></script>
+<script type="text/javascript" src="js/goOut.js"></script>
