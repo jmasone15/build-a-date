@@ -31,7 +31,7 @@
                 <div class="panel-body">
                     <!--section where the user will get back info on different restaurants-->
                     {{#each places}}
-                    <p><strong></strong>{{this.name}}</p>
+                    <p><strong><a href="{{this.url}}"></strong>{{this.name}}</a></p>
                     {{!-- <p><strong>2.</strong> </p>
                     <p><strong>3.</strong> Place 3</p>
                     <p><strong>4.</strong> Place 4</p> --}}
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        {{!-- <div class="col-sm-4">
             <div id="inner" class="panel panel text-center">
                 <div class="panel-heading">
                     <h1>ADVENTURE</h1>
@@ -59,7 +59,7 @@
                     <button class="btn btn-lg">Build my date!</button>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 </div>
 
