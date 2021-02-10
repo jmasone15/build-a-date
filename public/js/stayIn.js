@@ -55,7 +55,40 @@ $(document).ready(function () {
             if (data.length === 0) {
                 alert("No movies found.")
                 window.location.reload();
-            } else {
+            }
+            else if (data[0].netflix === true) {
+                $("#mResults").removeAttr("style")
+                $("#mTitle").append(data[0].title);
+                $("#mIMDb").append(data[0].IMDb);
+                $("#mGenres").append(data[0].genres);
+                $("#mYear").append(data[0].year);
+                $("#mStream").append("Netflix");
+            }
+            else if (data[0].hulu === true) {
+                $("#mResults").removeAttr("style")
+                $("#mTitle").append(data[0].title);
+                $("#mIMDb").append(data[0].IMDb);
+                $("#mGenres").append(data[0].genres);
+                $("#mYear").append(data[0].year);
+                $("#mStream").append("Hulu");
+            }
+            else if (data[0].prime_video === true) {
+                $("#mResults").removeAttr("style")
+                $("#mTitle").append(data[0].title);
+                $("#mIMDb").append(data[0].IMDb);
+                $("#mGenres").append(data[0].genres);
+                $("#mYear").append(data[0].year);
+                $("#mStream").append("Prime Video");
+            }
+            else if (data[0].disney_plus === true) {
+                $("#mResults").removeAttr("style")
+                $("#mTitle").append(data[0].title);
+                $("#mIMDb").append(data[0].IMDb);
+                $("#mGenres").append(data[0].genres);
+                $("#mYear").append(data[0].year);
+                $("#mStream").append("Disney Plus");
+            }
+            else {
                 $("#mResults").removeAttr("style")
                 $("#mTitle").append(data[0].title);
                 $("#mIMDb").append(data[0].IMDb);
@@ -133,6 +166,38 @@ $(document).ready(function () {
             if (data.length === 0) {
                 alert("No TV shows found.")
                 window.location.reload();
+            }
+            else if (data[0].Netflix === true) {
+                $("#tResults").removeAttr("style")
+                $("#tTitle").append(data[0].title);
+                $("#selectedTitle").append(data[0].title);
+                $("#tIMDB").append(data[0].IMDB);
+                $("#tYear").append(data[0].year);
+                $("#tStream").append("Netflix");
+            }
+            else if (data[0].Hulu === true) {
+                $("#tResults").removeAttr("style")
+                $("#tTitle").append(data[0].title);
+                $("#selectedTitle").append(data[0].title);
+                $("#tIMDB").append(data[0].IMDB);
+                $("#tYear").append(data[0].year);
+                $("#tStream").append("Hulu");
+            }
+            else if (data[0].Prime === true) {
+                $("#tResults").removeAttr("style")
+                $("#tTitle").append(data[0].title);
+                $("#selectedTitle").append(data[0].title);
+                $("#tIMDB").append(data[0].IMDB);
+                $("#tYear").append(data[0].year);
+                $("#tStream").append("Prime Video");
+            }
+            else if (data[0].Disney === true) {
+                $("#tResults").removeAttr("style")
+                $("#tTitle").append(data[0].title);
+                $("#selectedTitle").append(data[0].title);
+                $("#tIMDB").append(data[0].IMDB);
+                $("#tYear").append(data[0].year);
+                $("#tStream").append("Disney Plus");
             } else {
                 $("#tResults").removeAttr("style")
                 $("#tTitle").append(data[0].title);
