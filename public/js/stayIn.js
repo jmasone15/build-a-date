@@ -160,7 +160,7 @@ $(document).ready(function () {
     // Function to do a GET request by desired streaming service
     function streamMResults(stream) {
         console.log(stream);
-        $("#mStream").removeAttr("style");
+        $("#mStreamSearchResults").removeAttr("style");
 
         // GET request to get 5 random movies from the desired streaming service
         $.get(`/api/movie/${stream}/1`, function (data) {
@@ -328,7 +328,7 @@ $(document).ready(function () {
     // Function to do a GET request by desired streaming service
     function streamTVResults(stream) {
         console.log(stream);
-        $("#tStream").removeAttr("style");
+        $("#tStreamSearchResults").removeAttr("style");
 
         // GET request to get 5 random TV Shows from the desired streaming service
         $.get(`/api/tv/${stream}/1`, function (data) {
