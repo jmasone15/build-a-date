@@ -1,10 +1,10 @@
 # Build-A-Date 
-This project was centered around application that allows you to build a date that is specific to your taste and preferences, and saves that data so that you can have access to it whenever you want!
+Many people have a hard time deciding what they would like to do with their significant others for dates! This project was centered around an application that allows you to build a date that is specific to your taste and preferences, and saves that data so that you can have access to it whenever you want! It takes away the difficult parts of planning! Enjoy building your date! 
 
 
 ## Description
 
-This is an app that uses Handlebars, Express, HTML, CSS, & MySQL database system. 
+This is an app that uses Axios, Heroku, API's, Handlebars, Express, HTML, CSS, & MySQL database system. 
 
 ## Table of Contents 
 
@@ -17,6 +17,10 @@ This is an app that uses Handlebars, Express, HTML, CSS, & MySQL database system
 * [Tests](#tests)
 
 * [Questions](#questions)
+
+* [Screenshots Of App](#screenshots)
+
+* [Link to the application](#link)
 
 ## Installation
 
@@ -44,7 +48,7 @@ To run tests, run the following command:
 
 npm test
 
-## Screenshots of App
+## Screenshots 
 ![Alt text](public/assets/login.png)
 ![Alt text](public/assets/screenshot1.png)
 ![Alt text](public/assets/screenshot2.png)
@@ -53,7 +57,7 @@ npm test
 ![Alt text](public/assets/screenshot5.png)
 ![Alt text](public/assets/screenshot6.png)
 
-## Link to the application
+## Link
 ...
 
 ## Questions
