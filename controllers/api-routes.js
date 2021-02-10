@@ -59,6 +59,17 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  // Route to get movies by genre search
+  app.get("/api/genres/:genre", function (req, res) {
+    db.Movies.findAll({
+      limit: 5,
+      order: Sequelize.literal("rand()"),
+      where: {
+        genres: req.params.genre
+      }
+    }).then((data) => res.json(data));
+  });
+
   // Route to get movies on Netflix
   app.get("/api/movie/netflix/:Netflix", function (req, res) {
     db.Movies.findAll({
