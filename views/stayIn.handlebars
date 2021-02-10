@@ -42,6 +42,9 @@
                     <input type="text" id="mtitleInput" placeholder="Search by Title">
                     <button id="searchMTitle" class="btn btn-lg">Search</button>
                     <p> OR </p>
+                    <input type="text" id="mGenreInput" placeholder="Search by Genre">
+                    <button id="searchMGenre" class="btn btn-lg">Search</button>
+                    <p> OR </p>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="true">
@@ -70,11 +73,23 @@
 
                     </div>
                 </div>
+                <div class="panel-body" id="mGenre" style="display: none">
+                    <div id="mGenreResults" style="display: none;">
+
+                    </div>
+                </div>
                 <div class="panel-footer" style="display: none" id="mConfirm">
                     <h3>Add this movie to the date?</h3>
                     <p id="selectedTitle"></p>
-                    <button class="btn btn-lg" id="addMovie">Add Movie!</button> <button class="btn btn-lg"
-                        id="restart">Clear Search</button>
+                    <button class="btn btn-lg" id="addMovie">Add Movie!</button> <button
+                        class="btn btn-lg restart">Clear Search</button>
+                </div>
+                <div class="panel-footer" style="display: none" id="mGenreConfirm">
+                    <h3>Add this movie to the date?</h3>
+                    <p id="selectedgTitleM"></p>
+                    <button class="btn btn-lg" id="addgMovie">Add Movie!</button> <button
+                        class="btn btn-lg restart">Clear
+                        Search</button>
                 </div>
                 <div class="panel-footer" style="display: none" id="mStreamConfirm">
                     <h3>Add this movie to the date?</h3>

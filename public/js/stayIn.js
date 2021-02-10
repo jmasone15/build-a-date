@@ -56,6 +56,46 @@ $(document).ready(function () {
         streamMResults(userStream);
     });
 
+    // Event Listener to search for movies by genre
+    const searchmGenreBtn = $("#searchMGenre");
+    searchmGenreBtn.on("click", function (event) {
+        event.preventDefault();
+        let genre = $("input#mGenreInput").val().trim();
+        $("#mGenre").removeAttr("style");
+
+        $.get(`/api/genres/${genre}`, function (data) {
+            console.log(data);
+            if (data.length === 0) {
+                alert("No movies found.")
+                window.location.reload();
+            } else {
+                $("#mGenreResults").removeAttr("style");
+                for (let i = 0; i < data.length; i++) {
+                    $("#mGenreResults").append(`
+                    <a href= "#" class="genreMTitle">${data[i].title}</a>
+                    <p class="mgIMDB"><strong>IMDb Rating: ${data[i].IMDb}</strong></p>
+                    <p class="mgIMDB"><strong>Genre: ${data[i].genres}</strong></p>
+                    <br>
+                    `)
+                }
+
+                // Add Event Listeners to all of the newly appended movie titles.
+                const selectTitleLink = document.querySelectorAll(".genreMTitle");
+                if (selectTitleLink) {
+                    selectTitleLink.forEach((link) => {
+                        link.addEventListener("click", (event) => {
+                            const selectedTitle = event.target.text;
+                            console.log(selectedTitle);
+                            $("#mGenreConfirm").removeAttr("style");
+                            $("#selectedgTitleM").append(selectedTitle);
+                            $("#userMovie").text(selectedTitle);
+                        });
+                    });
+                }
+            }
+        });
+    });
+
     // Event Listener to search for a specific movie by title
     const searchmTitleBtn = $("#searchMTitle");
     searchmTitleBtn.on("click", function (event) {
@@ -123,7 +163,7 @@ $(document).ready(function () {
         // GET request to get 5 random movies from the desired streaming service
         $.get(`/api/movie/${stream}/1`, function (data) {
             console.log(data);
-            $("#mStreamResults").removeAttr("style")
+            $("#mStreamResults").removeAttr("style");
             for (let i = 0; i < data.length; i++) {
                 $("#mStreamResults").append(`
                 <a href= "#" class="streamMTitle">${data[i].title}</a>
@@ -162,6 +202,15 @@ $(document).ready(function () {
     addsMovie.on("click", function (event) {
         event.preventDefault();
         let usersMovie = $("#selectedsTitleM").text();
+        $("#tvOrMovie").text("movie");
+        $("#userMovie").text(usersMovie);
+        $("#entertain").append(usersMovie);
+        $("#date").removeAttr("style");
+    });
+    const addgMovie = $("#addgMovie");
+    addgMovie.on("click", function (event) {
+        event.preventDefault();
+        let usersMovie = $("#selectedgTitleM").text();
         $("#tvOrMovie").text("movie");
         $("#userMovie").text(usersMovie);
         $("#entertain").append(usersMovie);
