@@ -170,12 +170,18 @@ module.exports = function (app) {
   });
 
 
-  app.get("/api/entertainment", function (req, res) {
-    console.log("Route hit!!!!!")
-    let searchQuery = "Orlando"  // --> req.body.searchVal
-    let modifiedQuery = searchQuery.replace(" ", /%20/g);
-    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&find_desc={$modifiedQuery}`;
+  app.post("/api/entertainment", function (req, res) {
+    console.log("Route hit!!!!!");
+    // Verify we are grabbing the data from the form submission
+    console.log(`Request Body:`);
+    console.log(req.body)
 
+    let searchQuery = req.body.location  // --> req.body.location
+    let query = req.body.query; 
+    let modifiedQuery = query.replace(" ", /%20/g);
+    let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&find_desc=${modifiedQuery}`;
+    //let url = `https://api.yelp.com/v3/businesses/search?location=${searchQuery}&type=${modifiedQuery}`;
+    console.log(`URL: ${url}`);
     // How are we making the REQUEST to YELP? Makes an async call for data
     const config = {
       headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}` }
@@ -183,8 +189,27 @@ module.exports = function (app) {
 
     axios.get(url, config).then(function (response) {
       console.log("data response here")
-      console.log(response);
-      res.json(response.data);
+      //console.log(response);
+
+      // How do we pull out the most relevant information from the RESPONSE
+      let results = [];
+      let data = response.data.businesses; // ARRAY datatype
+      for(let i = 0; i < 10; i++) {
+        results.push(data[i])
+      }
+
+      console.log(results)
+      // Pass the top 4 results to the VIEW
+
+      // -- In the view -- //
+      let bizNames = [];
+      results.forEach(function(biz) {
+        console.log(biz.name)
+        console.log(biz.price)
+        bizNames.push(biz.name);
+      })
+
+      res.json(bizNames);
     }).catch(function (err) {
       console.log(err);
     });
