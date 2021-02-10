@@ -286,8 +286,8 @@ $(document).ready(function () {
 
 
     // Recipe Search JS
-    const foodKey = "0e0296678d63dc0895ac10e48c8b9d7a";
-    const foodId = "196d44a2";
+    const foodKey = key.foodKey;
+    const foodId = key.foodId;
     const searchRecipeBtn = $("#searchRecipe");
     searchRecipeBtn.on("click", function (event) {
         event.preventDefault();
