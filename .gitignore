@@ -103,7 +103,10 @@ dist
 # TernJS port file
 .tern-port
 
-# API key
+# Yelp API key
 ./controllers/key.js
 ./key.js
 .env
+
+# Food API key
+config.js
