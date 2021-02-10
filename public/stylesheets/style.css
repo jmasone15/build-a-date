@@ -14,7 +14,10 @@ form.login {
     background-color: rgb(14, 16, 19);
     
 }
-
+#cd{
+  background-color: #b6afaf;
+  
+}
 #signLog{
   color: #8d3535;
 }
@@ -98,7 +101,7 @@ p {
   
   .panel-heading {
     color: rgb(61, 59, 59) !important;
-    background-color: #b8615b !important;
+    background-color:  rgb(201, 81, 105)!important;
     padding: 25px;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 0px;
@@ -115,6 +118,8 @@ p {
   
   .panel-footer {
     background-color: rgb(75, 74, 74) !important;
+  
+    
   }
   
   .panel-footer h3 {

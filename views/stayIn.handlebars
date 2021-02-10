@@ -21,6 +21,7 @@
         <span style="display: none;" id="userId"></span>
         <span style="display: none;" id="userMovie"></span>
         <span style="display: none;" id="userTv"></span>
+        <span style="display: none;" id="userStream"></span>
         <span style="display: none;" id="userDay"></span>
         <span style="display: none;" id="userRecipe"></span>
         <span style="display: none;" id="tvOrMovie"></span>
@@ -40,6 +41,20 @@
                     <h1>MOVIES</h1>
                     <input type="text" id="mtitleInput" placeholder="Search by Title">
                     <button id="searchMTitle" class="btn btn-lg">Search</button>
+                    <p> OR </p>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true">
+                            Search By Streaming Service
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" id="netflixM">Netflix</a></li>
+                            <li><a href="#" id="huluM">Hulu</a></li>
+                            <li><a href="#" id="disneyM">Disney+</a></li>
+                            <li><a href="#" id="primeM">Amazon Prime</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="panel-body" id="m" style="display: none">
                     <div id="mResults" style="display: none;">
@@ -47,31 +62,71 @@
                         <p id="mIMDb"><strong>IMDb Rating: </strong></p>
                         <p id="mGenres"><strong>Genres: </strong></p>
                         <p id="mYear"><strong>Year: </strong></p>
+                        <p id="mStream"><strong>Watch on: </strong></p>
+                    </div>
+                </div>
+                <div class="panel-body" id="mStream" style="display: none">
+                    <div id="mStreamResults" style="display: none;">
+
                     </div>
                 </div>
                 <div class="panel-footer" style="display: none" id="mConfirm">
                     <h3>Add this movie to the date?</h3>
-
+                    <p id="selectedTitle"></p>
                     <button class="btn btn-lg" id="addMovie">Add Movie!</button> <button class="btn btn-lg"
                         id="restart">Clear Search</button>
                 </div>
+                <div class="panel-footer" style="display: none" id="mStreamConfirm">
+                    <h3>Add this movie to the date?</h3>
+                    <p id="selectedsTitleM"></p>
+                    <button class="btn btn-lg" id="addsMovie">Add Movie!</button> <button
+                        class="btn btn-lg restart">Clear
+                        Search</button>
+                </div>
 
                 <div class="panel-heading" id="tvSearch" style="display: none;">
-                    <h1>TV Show</h1>
+                    <h1>TV SHOWS</h1>
                     <input type="text" id="ttitleInput" placeholder="Search by Title">
                     <button id="searchTTitle" class="btn btn-lg">Search</button>
+                    <p> OR </p>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="true">
+                            Search By Streaming Service
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" id="netflix">Netflix</a></li>
+                            <li><a href="#" id="hulu">Hulu</a></li>
+                            <li><a href="#" id="disney">Disney+</a></li>
+                            <li><a href="#" id="prime">Amazon Prime</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="panel-body" id="t" style="display: none">
                     <div id="tResults" style="display: none;">
                         <p id="tTitle"><strong>Title: </strong></p>
                         <p id="tIMDB"><strong>IMDb Rating: </strong></p>
                         <p id="tYear"><strong>Year: </strong></p>
+                        <p id="tStream"><strong>Watch on: </strong></p>
+                    </div>
+                </div>
+                <div class="panel-body" id="tStream" style="display: none">
+                    <div id="tStreamResults" style="display: none;">
+
                     </div>
                 </div>
                 <div class="panel-footer" style="display: none" id="tConfirm">
                     <h3>Add this TV Show to the date?</h3>
-
+                    <p id="selectedTitle"></p>
                     <button class="btn btn-lg" id="addTv">Add TV Show!</button> <button class="btn btn-lg restart">Clear
+                        Search</button>
+                </div>
+                <div class="panel-footer" style="display: none" id="tStreamConfirm">
+                    <h3>Add this TV Show to the date?</h3>
+                    <p id="selectedsTitle"></p>
+                    <button class="btn btn-lg" id="addsTv">Add TV Show!</button> <button
+                        class="btn btn-lg restart">Clear
                         Search</button>
                 </div>
             </div>
@@ -135,4 +190,8 @@
     </svg>
 </footer>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/config.js"></script>
 <script type="text/javascript" src="js/stayIn.js"></script>

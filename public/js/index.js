@@ -1,5 +1,6 @@
 $(document).ready(function () {
   console.log('member.js loaded')
+  // Sets up event listener to take user to their specific date paged based on who is logged in.
   const viewDatesLink = $(".viewDates");
 
   // This file just does a GET request to figure out which user is logged in

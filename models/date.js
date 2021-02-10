@@ -24,12 +24,14 @@ module.exports = function (sequelize, DataTypes) {
         goOut: {
             type: DataTypes.BOOLEAN
         },
+        // The date starts out as no completed, updated when the user completes the date.
         completed: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
         }
     });
 
+    // Associates the date created with a specific user who created the date
     Date.associate = function (models) {
         Date.belongsTo(models.User, {
             foreignKey: {
