@@ -49,7 +49,8 @@ module.exports = function (app) {
     }
   });
 
-  // Movies
+  // Movie Routes
+  // Route to get a specific movie
   app.get("/api/movies/:movie", function (req, res) {
     db.Movies.findAll({
       where: {
@@ -57,6 +58,8 @@ module.exports = function (app) {
       }
     }).then((data) => res.json(data));
   });
+
+  // Route to get movies on Netflix
   app.get("/api/movie/netflix/:Netflix", function (req, res) {
     db.Movies.findAll({
       limit: 5,
@@ -69,6 +72,8 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  // Route to get movies on Hulu
   app.get("/api/movie/hulu/:Hulu", function (req, res) {
     db.Movies.findAll({
       limit: 5,
@@ -81,6 +86,8 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  // Route to get movies on Amazon Prime
   app.get("/api/movie/prime/:Prime", function (req, res) {
     db.Movies.findAll({
       limit: 5,
@@ -93,6 +100,8 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  // Route to get movies on Disney Plus
   app.get("/api/movie/disney/:Disney", function (req, res) {
     db.Movies.findAll({
       limit: 5,
@@ -106,7 +115,8 @@ module.exports = function (app) {
     });
   });
 
-  // Tv Shows
+  // Tv Show Routes
+  // Route to get a specific TV Show
   app.get("/api/tv/:title", function (req, res) {
     db.Tv.findAll({
       where: {
@@ -115,6 +125,7 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  // Route to get TV Shows on Netflix
   app.get("/api/tv/netflix/:Netflix", function (req, res) {
     db.Tv.findAll({
       limit: 5,
@@ -127,6 +138,8 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  // Route to get TV Shows on Hulu
   app.get("/api/tv/hulu/:Hulu", function (req, res) {
     db.Tv.findAll({
       limit: 5,
@@ -139,6 +152,8 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  // Route to get TV Shows on Prime Video
   app.get("/api/tv/prime/:Prime", function (req, res) {
     db.Tv.findAll({
       limit: 5,
@@ -151,6 +166,8 @@ module.exports = function (app) {
       res.json(data);
     });
   });
+
+  // Route to get TV Shows on Disney Plus
   app.get("/api/tv/disney/:Disney", function (req, res) {
     db.Tv.findAll({
       limit: 5,
@@ -165,7 +182,8 @@ module.exports = function (app) {
   });
 
   
-  // Dates
+  // Date Routes
+  // Route to create a new date
   app.post("/api/stayin/date", function (req, res) {
     db.Date.create({
       movie: req.body.movie,
@@ -177,6 +195,7 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  // Route to get all dates under a specific user
   app.get("/dates/:id", function (req, res) {
     db.Date.findAll({
       where: {
@@ -187,6 +206,7 @@ module.exports = function (app) {
     });
   });
 
+  // Route to remove a date 
   app.delete("/dates/:id", function (req, res) {
     db.Date.destroy({
       where: {
@@ -195,6 +215,7 @@ module.exports = function (app) {
     }).then((data) => res.json(data));
   });
 
+  // Route to update a date
   app.put("/dates/update/:id", function (req, res) {
     db.Date.update(
       {

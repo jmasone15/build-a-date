@@ -19,6 +19,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   
+  // Associates the User to dates created by them
   User.associate = function(models) {
     User.hasMany(models.Date)
   }
