@@ -329,11 +329,10 @@ $(document).ready(function () {
 
 
 
-    // Recipe Search API JS
-    const foodKey = "0e0296678d63dc0895ac10e48c8b9d7a";
-    const foodId = "196d44a2";
 
-    // Event Listener to search for a recipe by ingredient
+    // Recipe Search JS
+    const foodKey = key.foodKey;
+    const foodId = key.foodId;
     const searchRecipeBtn = $("#searchRecipe");
     searchRecipeBtn.on("click", function (event) {
         event.preventDefault();
