@@ -1,11 +1,13 @@
 $(document).ready(function () {
     console.log("stayIn.js loaded");
-    $('.dropdown-toggle').dropdown()
+    $('.dropdown-toggle').dropdown();
+    const viewDatesLink = $(".viewDates");
 
     // GET request to grab the user's id so we can assign the created date to them.
     $.get("/api/user_data").then(function (data) {
         $("#userId").text(data.id);
         console.log(data.id);
+        viewDatesLink.attr("href", `dates/${data.id}`);
     });
 
 
